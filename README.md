@@ -1,48 +1,44 @@
-# 滚动加载组件
+# 滑动验证组件
 
 ## 描述
 
-基于react、antd、react-infinite-scroller封装的滚动加载组件，用户可以通过配置请求路径、请求方式、响应字段等参数使用组件。
+基于js封装的滑动验证组件，用于登录时人机验证，有效防止接口被调用等攻击行为。只需通过简单的右滑交互操作，用户无需思考即可通过验证。
 
 ## 效果
 
-<img src="https://i.loli.net/2021/11/17/tHxEPaSFpGw7mhQ.png" width="320"/><img src="https://i.loli.net/2021/11/17/QAy8BLY74U5uhDs.png" width="320"/>
+<img src="https://s2.loli.net/2021/12/20/cVabgIUZtSTkJzD.png" width="320"/><img src="https://s2.loli.net/2021/12/20/QckIs3OTuiEdvql.png" width="320"/>
 
 ## 安装
 
 ```
-npm i @dzc/scroll-loading --save
+在Web页面中使用滑动验证功能，需要在前端页面代码中添加以下代码，引入所需的JS资源。<script src="https://g.alicdn.com/AWSC/AWSC/awsc.js"></script>。
 ```
 
 ## 使用
 
 ```jsx
 import React from 'react';
-import ScrollLoading from '@dzc/scroll-loading';
+import SlideVerify from '../components/SlideVerify';
 
 export default () => {
 
-  const scrollLoadingProps = {
-    title: '文本列表',
-    showHeader: true,
-    height: '600px',
-    method: 'GET',
-    url: '/api/marketing_planning/getOptionalMsgs',
-    currentPageKey: 'start',
-    params: {
-      version: 1,
-      offSet: 20,
-      start: 0,
-      id: '20'
-    },
-    reqCodeKey: 'code',
-    reqCodeValue: '200',
-    reqDataKey: 'data',
-    reqListKey: 'msgs',
-    reqTotalKey: 'total'
+  const onSuccess = (e) => { console.log('前端滑动验证通过时会触发该回调参数。您可以在该回调参数中将会话ID（sessionId）、签名串（sig）、请求唯一标识（token）字段记录下来，随业务请求一同发送至您的服务端调用验签。', e) }
+
+  const onFail = (e) => { console.log('滑动验证失败时触发该回调参数。', e) }
+
+  const onError = (e) => { console.log('验证码加载出现异常时触发该回调参数。', e) }
+
+  const SlideVerifyProps = {
+    id: 'nc',
+    width: '300px',
+    height: '34px',
+    fontSize: '12px',
+    onSuccess,
+    onFail,
+    onError
   }
 
-  return <ScrollLoading {...scrollLoadingProps} />;
+  return <SlideVerify {...SlideVerifyProps} />;
 };
 
 ```
