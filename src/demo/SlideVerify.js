@@ -13,7 +13,6 @@ export default () => {
     id: 'nc',
     width: '300px',
     height: '34px',
-    fontSize: '12px',
     onSuccess,
     onFail,
     onError
