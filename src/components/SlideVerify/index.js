@@ -40,7 +40,16 @@ const Page = (props) => {
   }
 
   useEffect(() => {
-    init();
+    if (!document.getElementById('awsc')) {
+      const el = document.createElement('script');
+      el.id = "awsc";
+      el.src = "https://g.alicdn.com/AWSC/AWSC/awsc.js";
+      el.async = false;
+      document.body.appendChild(el);
+      el.onload = () => {
+        init();
+      }
+    }
   }, []);
 
   return (
