@@ -11,14 +11,14 @@
 ## 安装
 
 ```
-在Web页面中使用滑动验证功能，需要在前端页面代码中添加以下代码，引入所需的JS资源。<script src="https://g.alicdn.com/AWSC/AWSC/awsc.js"></script>。
+npm i @dzc/slide-verify --save
 ```
 
 ## 使用
 
 ```jsx
 import React from 'react';
-import SlideVerify from '../components/SlideVerify';
+import SlideVerify from '@dzc/slide-verify';
 
 export default () => {
 
@@ -57,6 +57,7 @@ export default () => {
 ## 更新日志
 
 ```
+1.0.1 修改组件安装方式
 1.0.0 组件发布
 ```
 
