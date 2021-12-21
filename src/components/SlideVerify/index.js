@@ -49,6 +49,8 @@ const Page = (props) => {
       el.onload = () => {
         init();
       }
+    } else {
+      init()
     }
   }, []);
 
