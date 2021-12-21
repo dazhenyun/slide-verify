@@ -45,11 +45,12 @@ const Page = (props) => {
       el.id = "awsc";
       el.src = "https://g.alicdn.com/AWSC/AWSC/awsc.js";
       el.async = false;
-      document.body.appendChild(el);
+      document.head.appendChild(el);
       el.onload = () => {
         init();
       }
     } else {
+      document.getElementById(id).innerHTML = ''
       init()
     }
   }, []);
