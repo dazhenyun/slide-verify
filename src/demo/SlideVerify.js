@@ -1,5 +1,5 @@
 import React from 'react';
-import SlideVerify from '../components/valide-code';
+import SlideVerify from '../components/SlideVerify';
 
 export default () => {
 
