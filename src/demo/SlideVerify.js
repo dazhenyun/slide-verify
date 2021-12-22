@@ -1,5 +1,5 @@
 import React from 'react';
-import SlideVerify from '../components/SlideVerify';
+import SlideVerify from '../components/valide-code';
 
 export default () => {
 
@@ -9,13 +9,26 @@ export default () => {
 
   const onError = (e) => { console.log('验证码加载出现异常时触发该回调参数。', e) }
 
+  const reqCode = async () => {
+    // const res = await false // 返回失败情况
+    // const res = await fetch('https://gw.alipayobjects.com/os/antvdemo/assets/data/diamond.json') // 返回成功
+    // return res
+    const res = await 'lkjsafdsafsaf'
+    return res
+  }
+
   const SlideVerifyProps = {
-    id: 'nc',
     width: '300px',
     height: '34px',
+    defaultBg: '#e8e8e8',
+    defaultText: '请按住滑块，拖动到最右边',
+    loadingText: '验证中',
+    successBg: '#7ac23c',
+    successText: '验证通过',
     onSuccess,
     onFail,
-    onError
+    onError,
+    reqCode
   }
 
   return <SlideVerify {...SlideVerifyProps} />;

@@ -28,10 +28,23 @@ export default () => {
 
   const onError = (e) => { console.log('验证码加载出现异常时触发该回调参数。', e) }
 
+  const reqCode = async () => {
+    // const res = await false // 返回失败情况
+    // const res = await fetch('https://gw.alipayobjects.com/os/antvdemo/assets/data/diamond.json') // 返回成功
+    // return res
+    const res = await 'lkjsafdsafsaf'
+    return res
+  }
+
   const SlideVerifyProps = {
-    id: 'nc',
     width: '300px',
     height: '34px',
+    defaultBg: '#e8e8e8',
+    defaultText: '请按住滑块，拖动到最右边',
+    loadingText: '验证中',
+    successBg: '#7ac23c',
+    successText: '验证通过',
+    reqCode,
     onSuccess,
     onFail,
     onError
@@ -46,17 +59,24 @@ export default () => {
 
 | 参数 | 说明 | 类型 | 默认值 | 可选值 |
 | --- | --- | --- | --- | --- |
-| id | 声明滑动验证需要渲染的目标ID | string | 'nc' | - |
 | width | 宽度 | string | '300px' | - |
-| height | 高度 | string | '34px' | - |
+| height | 高度 | string | '#e8e8e8' | - |
+| defaultBg | 默认背景色 | string | '34px' | - |
+| defaultText | 默认文字 | string | '请按住滑块，拖动到最右边' | - |
+| loadingText | 验证中文字 | string | '验证中' | - |
+| successBg | 验证成功时背景色 | string | '#7ac23c' | - |
+| successText | 验证成功时文字 | string | '验证通过' | - |
+| reqCode | 回调函数，用于请求接口获取key值返回到组件中 | func | - | - |
 | onSuccess | 前端滑动验证通过时会触发该回调参数。您可以在该回调参数中将会话ID（sessionId）、签名串（sig）、请求唯一标识（token）字段记录下来，随业务请求一同发送至您的服务端调用验签。 | func | - | - |
 | onFail | 滑动验证失败时触发该回调参数。 | func | - | - |
+| onError | 验证码加载出现异常时触发该回调参数。 | func | - | - |
 | onError | 验证码加载出现异常时触发该回调参数。 | func | - | - |
 
 
 ## 更新日志
 
 ```
+2.0.0 支持内网环境下使用、支持背景和文字配置、支持通过后端已返回code再进行验证
 1.0.6 修复组件切换展示不全问题
 1.0.5 修复组件切换展示不全问题
 1.0.4 修复组件切换展示不全问题
