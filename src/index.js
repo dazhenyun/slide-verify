@@ -1,3 +1,3 @@
-import Login from './components/Login';
+import SlideVerify from './components/SlideVerify';
 
-export default Login;
+export default SlideVerify;
