@@ -6,7 +6,7 @@
 
 ## 效果
 
-<img src="https://s2.loli.net/2022/01/14/hkWqHprfb1gKQZN.png" width="100%"/>
+<img src="https://s2.loli.net/2022/01/14/hkWqHprfb1gKQZN.png" width="750"/>
 
 ## 安装
 
