@@ -3,7 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   mode: 'production',
-  entry: './src/components/SlideVerify/index.js',
+  entry: './src/components/Login/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist'),
@@ -12,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(woff|svg|eot|ttf)\??.*$/,
+        test: /\.(woff|svg|png|gif|eot|ttf)\??.*$/,
         loader: 'url-loader'
       },
       {
